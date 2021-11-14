@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  mysql:
+    image: mariadb:10.7.1
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  postgres:
+    image: postgres:9.6.23
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+
+volumes:
+  mysql-data:
+  postgres-data:
